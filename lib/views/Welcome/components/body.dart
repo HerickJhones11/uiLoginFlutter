@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loginpage/components/rounded_button.dart';
 import 'package:loginpage/constants.dart';
+import 'package:loginpage/views/Signup/signup_screen.dart';
 import 'background.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -17,25 +18,40 @@ class Body extends StatelessWidget {
           children: <Widget>[
 
             Text(
-                "WELCOME TO EDU",
-                style: TextStyle(fontWeight: FontWeight.bold)
+                "Fort Condomínio",
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.grey)
             ),
             SizedBox(height: size.height * 0.03,),
-            SvgPicture.asset(
+            Column(
+              children: <Widget>[
+                Image.asset('assets/images/after.png'),
+              ],
+            ),
+            /*SvgPicture.asset(
               "assets/icons/chat.svg",
               height: size.height * 0.45,
-            ),
+            ),*/
             SizedBox(height: size.height * 0.05,),
             RoundedButton(
               text:'Login',
-              press:() {}
+              press:() {
+              }
 
               ),
             RoundedButton(
-                text:'Login',
+                text:'Registrar-se',
                 color: kPrimaryLightColor,
-                textColor: Colors.black,
-                press:() {}
+                textColor: Colors.white,
+                press:() {
+                  print('teste');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                }
             ),
           ],
       ),

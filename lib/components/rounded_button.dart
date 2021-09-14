@@ -3,7 +3,7 @@ import '../../constants.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function press;
+  final VoidCallback  press;
   final Color color, textColor;
   const RoundedButton({
     Key? key,
@@ -36,7 +36,7 @@ class RoundedButton extends StatelessWidget {
                   )
               )
           ),
-          onPressed: () => press,
+          onPressed:  press,
         )
     );
   }
