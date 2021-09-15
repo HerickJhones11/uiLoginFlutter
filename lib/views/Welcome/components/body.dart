@@ -27,10 +27,7 @@ class Body extends StatelessWidget {
           ),
           Column(
             children: <Widget>[
-              Image.asset(
-                'assets/images/after.png',
-                width: 300,
-              ),
+              Image.asset("assets/images/logo_fort_condominios_02.png", width: size.width *  0.35,),
             ],
           ),
           /*SvgPicture.asset(
