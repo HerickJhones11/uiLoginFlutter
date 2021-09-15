@@ -10,7 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 var client = http.Client();
 
 Future<http.Response> Login ( TextEditingController user, TextEditingController user_password ,BuildContext context) async {
-  var url ='http://10.0.2.2:8000/api/login';
+  var url ='http://127.0.0.1:8000/api/login ';//''http://10.0.2.2:8000/api/login';
   var email = user.text;
   var password = user_password.text;
 
@@ -27,11 +27,14 @@ Future<http.Response> Login ( TextEditingController user, TextEditingController 
   //encode Map to JSON
   var body = json.encode(data);
 
+  print('tese');
 
   var response = await http.post(Uri.parse(url),
       headers: {"Content-Type": "application/json"},
       body: body
   );
+  print("${response.statusCode}");
+  print('tese');
 
   print("${response.statusCode}");
   if(response.statusCode == 200){

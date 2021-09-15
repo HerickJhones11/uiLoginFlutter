@@ -11,31 +11,29 @@ import 'package:loginpage/constants.dart';
 import 'package:loginpage/views/Login/components/background.dart';
 import 'package:http/http.dart' as http;
 import 'package:loginpage/views/Login/components/controller.dart';
+import 'package:loginpage/views/Signup/signup_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
-
   @override
-
   Widget build(BuildContext context) {
     var client = http.Client();
 
     TextEditingController userController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
 
-    void teste() async{
+    void teste() async {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String? token = prefs.getString('token');
-      if(token != null) {
+      if (token != null) {
         print('redirecionar');
       }
       print(token);
     }
-    teste();
 
+    teste();
 
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -46,13 +44,17 @@ class Body extends StatelessWidget {
             "LOGIN",
             style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue),
           ),*/
-          SizedBox(height: size.height * 0.03,),
+          SizedBox(
+            height: size.height * 0.03,
+          ),
           SvgPicture.asset(
             "assets/icons/edificio.svg",
             height: size.height * 0.45,
           ),
           //Image.asset("assets/images/logo_fort_condominios_02.png", width: size.width *  0.35,),
-          SizedBox(height: size.height * 0.03,),
+          SizedBox(
+            height: size.height * 0.03,
+          ),
           RoundedInputField(
             hintText: "Seu Email",
             controller: userController,
@@ -60,23 +62,28 @@ class Body extends StatelessWidget {
           ),
           RoundedPasswordField(
             controller: passwordController,
-            onChanged: (value) {
-            },
+            onChanged: (value) {},
           ),
-          RoundedButton(text: 'LOGIN', press: (){
-             Login(userController,passwordController,context);
-          }),
-          SizedBox(height: size.height * 0.03,),
-          AlreadyHaveAnAccountCheck(press: () async {
-            SharedPreferences preferences = await SharedPreferences.getInstance();
-            await preferences.clear();
-          },)
+          RoundedButton(
+              text: 'LOGIN',
+              press: () {
+                Login(userController, passwordController, context);
+              }),
+          SizedBox(
+            height: size.height * 0.03,
+          ),
+          AlreadyHaveAnAccountCheck(
+            press: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return SignUpScreen();
+                }),
+              );
+            },
+          )
         ],
       ),
     );
   }
 }
-
-
-
-

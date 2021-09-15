@@ -54,7 +54,6 @@ class Body extends StatelessWidget {
               color: kPrimaryLightColor,
               textColor: Colors.white,
               press: () {
-                print('teste');
                 Navigator.push(
                   context,
                   MaterialPageRoute(
