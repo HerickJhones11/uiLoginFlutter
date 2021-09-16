@@ -1,4 +1,4 @@
-package com.notridan.loginpage
+package com.notridan.fortcondominio
 
 import io.flutter.embedding.android.FlutterActivity
 

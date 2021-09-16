@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "957451020590",
+    "project_id": "notridan-notification",
+    "storage_bucket": "notridan-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957451020590:android:9e588dec2d609b97c9b2bf",
+        "android_client_info": {
+          "package_name": "com.notridan.fortcondominio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957451020590-r1dd775r0sclv96c8pbjh0hcs33as9sd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.notridan.fortcondominio",
+            "certificate_hash": "e725f03ad25d8d792d7c8ed905ccb3d92d1b0d7a"
+          }
+        },
+        {
+          "client_id": "957451020590-k48qiqsufi4n4e1l2cg3r8ljs8mr7j1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgvY9BQw25BoH5HlqEy1C9hBd7hxp37z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957451020590-k48qiqsufi4n4e1l2cg3r8ljs8mr7j1f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
