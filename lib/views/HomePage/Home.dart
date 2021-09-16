@@ -11,9 +11,11 @@ class Home extends StatefulWidget {
 class _MyListScreenState extends State {
   List<User> users = List<User>.empty(growable: true);
 
+
   _getUsers() {
     API.getUsers().then((response) {
       setState(() {
+        //print(response.body);
         Iterable list = json.decode(response.body)["data"];
         users = list.map((model) => User.fromJson(model)).toList();
       });
@@ -38,9 +40,8 @@ class _MyListScreenState extends State {
         body: ListView.builder(
           itemCount: users.length,
           itemBuilder: (context, index) {
-            return ListTile( title: Text(users[index].name ?? 'descricao'),subtitle: Text(users[index].email ?? 'descricao'));
+            return ListTile(title: Text(users[index].name ?? 'descricao'));
           },
-        )
-    );
+        ));
   }
 }

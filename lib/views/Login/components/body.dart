@@ -8,9 +8,11 @@ import 'package:loginpage/components/rounded_input_field.dart';
 import 'package:loginpage/components/rounded_password_field.dart';
 import 'package:loginpage/components/text_field_container.dart';
 import 'package:loginpage/constants.dart';
+import 'package:loginpage/views/HomePage/Home.dart';
 import 'package:loginpage/views/Login/components/background.dart';
 import 'package:http/http.dart' as http;
 import 'package:loginpage/views/Login/components/controller.dart';
+import 'package:loginpage/views/Notification/Notification.dart';
 import 'package:loginpage/views/Signup/signup_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -24,16 +26,9 @@ class Body extends StatelessWidget {
     TextEditingController userController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
 
-    void teste() async {
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? token = prefs.getString('token');
-      if (token != null) {
-        print('redirecionar');
-      }
-      print(token);
-    }
 
-    teste();
+
+    checkUser(context);
 
     Size size = MediaQuery.of(context).size;
     return Background(
@@ -81,7 +76,56 @@ class Body extends StatelessWidget {
                 }),
               );
             },
-          )
+          ),
+          GestureDetector(
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return Home();
+                }),
+              );
+            },
+            child: Text(
+                "Home PAge",
+                style: TextStyle(
+                    color: kPrimaryLightColor,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+          ),
+          GestureDetector(
+            onTap: () async {
+              SharedPreferences preferences = await SharedPreferences.getInstance();
+              await preferences.clear();
+            },
+            child: Text(
+                "Clear cache",
+                style: TextStyle(
+                    color: kPrimaryLightColor,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+          ),
+          GestureDetector(
+            onTap: () async {
+              print('levar pra tela de notification');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return NotificationPage();
+                }),
+              );
+
+            },
+            child: Text(
+                "Notification",
+                style: TextStyle(
+                    color: kPrimaryLightColor,
+                    fontWeight: FontWeight.bold
+                )
+            ),
+          ),
         ],
       ),
     );

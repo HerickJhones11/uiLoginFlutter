@@ -37,14 +37,14 @@ class API {
   static Future getUsers() async {
     var url = baseUrl + "/users";
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final String? userId = prefs.getString('username');
+    final String? token = prefs.getString('token');
     //print(userId);
 
     return http.get(Uri.parse(url),
       headers: {
         'Content-type': 'application/json',
         'Accept': 'application/json',
-        "Authorization" : "Bearer $userId",
+        "Authorization" : "Bearer $token",
       },
     );
 

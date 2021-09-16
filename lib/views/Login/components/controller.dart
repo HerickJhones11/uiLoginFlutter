@@ -97,3 +97,26 @@ Future<http.Response> checkAuth ( TextEditingController user, TextEditingControl
 
   return response;
 }
+
+void checkUser(BuildContext context) async {
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final String? token = prefs.getString('token');
+  if (token != null) {
+    final String? token = prefs.getString('token');
+    const url = "http://10.0.2.2:8000/api/login/check";
+    var response = await http.get(Uri.parse(url),
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        "Authorization" : "Bearer $token",
+      },
+    );
+    bool valid = json.decode(response.body)["valid"];
+    if(valid == true){
+      Navigator.push(context, new MaterialPageRoute(
+          builder: (context) => new Home())
+      );
+    }
+  }
+  //print(token);
+}
